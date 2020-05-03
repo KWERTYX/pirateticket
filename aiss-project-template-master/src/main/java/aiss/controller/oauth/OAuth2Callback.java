@@ -30,7 +30,6 @@ public class OAuth2Callback extends AbstractAuthorizationCodeCallbackServlet {
 		String provider=getInitParameter("provider");
 		req.getSession().setAttribute(provider+"-token", credential.getAccessToken());
 		OAuthRegistry.onAuthorizationSuccess(getInitParameter("onSuccess"), provider, credential, req, resp);				
-		
 	}
 
 	@Override
