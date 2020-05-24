@@ -1,0 +1,177 @@
+basePath: /api/v1
+host: pirateticket-276020.appspot.com/
+swagger: '2.0'
+info:
+  description: This is a PirateTicket API
+  version: 1.0.0
+  title: Simple Inventory API
+  # put the contact info for your development or API team
+  contact:
+    email: you@your-company.com
+
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# tags are used for organizing operations
+tags:
+- name: usuarios
+  description: Usuarios de la api de pirateTicket
+
+paths:
+  /events:
+    get:
+      tags:
+      - usuarios
+      summary: Listado de los eventos
+      operationId: getAll
+      description: Permite filtrar los eventos por varios campos
+      produces:
+      - application/json
+      parameters:
+      - in: query
+        name: order
+        description: Campo para ordenar los eventos. 
+        required: false
+        type: string
+        enum: [artista, -artista, fecha, -fecha]
+      - in: query
+        name: artista
+        description: Filtro para buscar por artista
+        type: string
+      - in: query
+        name: lugar
+        description: Filtro para buscar por lugar
+        type: string
+      responses:
+        200:
+          description: Lista de eventos
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Event'
+        400:
+          description: bad input parameter
+        500:
+          description: Error no identificado
+    post:
+      tags:
+      - usuarios
+      summary: Añadir evento
+      operationId: addEvent
+      description: Permite añadir un evento
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: event
+        description: Objeto de tipo evento.
+        schema:
+          $ref: '#/definitions/Event'
+      responses:
+        201:
+          description: item created
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+        500:
+          description: Error no identificado
+    put:
+      tags:
+      - usuarios
+      summary: Actualización del evento
+      operationId: updateEvent
+      description: Permite actualizar los datos de un evento.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: event
+        description: Objeto de tipo evento.
+        schema:
+          $ref: '#/definitions/Event'
+      responses:
+        204:
+          description: Evento modificado
+        400:
+          description: Datos incorrectos
+        404:
+          description: Evento no encontrado
+        500:
+          description: Error no identificado
+  /events/{id}:
+    get:
+      tags:
+      - usuarios
+      summary: Obtener un evento
+      operationId: get
+      description: Permite obtener un evento por su id
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        description: Id del evento consultado 
+        required: true
+        type: string
+      responses:
+        200:
+          description: Se devuelve el evento consultado
+        404:
+          description: Evento no encontrado
+        500:
+          description: Error no identificado
+  /delete/{id}:
+    delete:
+      tags:
+      - usuarios
+      summary: Eliminar un evento
+      operationId: removeEvent
+      description: Permite eliminar un evento.
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: path
+        name: id
+        description: Id del evento
+        required: true
+        type: string
+      responses:
+        204:
+          description: Evento eliminado
+        404:
+          description: Evento no encontrado
+        500:
+          description: Error no identificado
+     
+definitions:
+  Event:
+    type: object
+    required:
+    - id
+    - artista
+    - fecha
+    - lugar
+    properties:
+      id:
+        type: string
+        example: e0
+      artista:
+        type: string
+        example: Estopa
+      fecha:
+        type: number
+        example: 1590157587000
+      precio:
+        type: number
+        example: 50.2
+      lugar:
+        type: string
+        example: Sevilla

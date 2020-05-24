@@ -12,9 +12,39 @@
 		<url-pattern>/spotify</url-pattern>
 	</servlet-mapping>
 	
+		<servlet>
+		<servlet-name>Event</servlet-name>
+		<servlet-class>aiss.EventServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Event</servlet-name>
+		<url-pattern>/event</url-pattern>
+	</servlet-mapping>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
+	
+	<servlet>
+		<description></description>
+		<display-name>TicketMasterController</display-name>
+		<servlet-name>TicketMasterController</servlet-name>
+		<servlet-class>aiss.TicketMasterController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TicketMasterController</servlet-name>
+		<url-pattern>/event_list</url-pattern>
+	</servlet-mapping>
+		<servlet>
+		<description></description>
+		<display-name>TicketMasterPaginationController</display-name>
+		<servlet-name>TicketMasterPaginationController</servlet-name>
+		<servlet-class>aiss.TicketMasterPaginationController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TicketMasterPaginationController</servlet-name>
+		<url-pattern>/event_list_pag</url-pattern>
+	</servlet-mapping>
 	
 	<!--  OAUTH SERVLETS 
   
@@ -69,5 +99,28 @@
     <servlet-name>SpotifyOAuth2Callback</servlet-name>
     <url-pattern>/oauth2callback/Spotify</url-pattern>
   </servlet-mapping>
+  
+      	<!-- All REST resources will be prefixed by /api  -->
+	<context-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/api/v1</param-value>
+	</context-param>
+
+	<!-- Servlets -->
+	<servlet>
+		<servlet-name>Resteasy</servlet-name>
+		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>aiss.api.EventApplication</param-value>
+		</init-param>
+	</servlet>		
+	
+	<!-- Servlet mappings -->
+	<!-- All calls to /api/xxx will be sent to the resteasy servlet -->
+	<servlet-mapping>
+		<servlet-name>Resteasy</servlet-name>
+		<url-pattern>/api/v1/*</url-pattern>
+	</servlet-mapping>
 
 </web-app>

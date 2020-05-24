@@ -1,0 +1,23 @@
+@CHARSET "ISO-8859-1";
+
+#ticketmaster {
+	padding-bottom:180px;
+}
+
+/*.tm-event {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.tm-event-date {
+	flex-grow: 1;
+}
+
+.tm-event-general {
+	flex-grow: 4;
+}
+
+.tm-event-button {
+	flex-grow: 2;
+}*/

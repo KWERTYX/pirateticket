@@ -1,20 +1,275 @@
-<!DOCTYPE html> 
-<html>
+<!DOCTYPE html>
+<html lang="es">
   <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Índice</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Pirate Ticket</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Estilos CSS personalizados -->
+    <link rel="stylesheet" href="css/estilos.css">  
+    
   </head>
-
   <body>
-    <h1>Índice!</h1>
-	
-    <table>
-      <tr>
-        <td colspan="2" style="font-weight:bold;">Servlets programados para el proyecto:</td>        
-      </tr>
-      <tr>
-        <td><a href="spotify">Spotify & Youtube</a></td>
-      </tr>
-    </table>
+    <section id="cover">
+        <div id="cover-texto">
+            <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="display-3">Pirate Ticket</h1>
+                    <p>Encuentra entrada para tus eventos favoritos</p>
+                    
+                    <form id="searchForm" action="event_list" method="post"class="form-inline justify-content-center">
+                        <div class="form-group">
+                            <label class="sr-only">Evento</label>
+                            <input type="text" name="query" class="form-control form-control-lg" placeholder="Evento">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-lg">Buscar</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>   
+    
+    
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Menú</a>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#aplicaciones">Api's integradas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#grupo">Grupo de trabajo</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    
+    
+    <section id="carousel">
+            <div id="carouselImageIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselImageIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselImageIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselImageIndicators" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img src="img/festival_1.jpg" alt="">
+                    
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/festival_2.jpg" alt="">
+                    
+                    <div class="carousel-caption">
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/festival_3.jpg" alt="">
+                    
+                    <div class="carousel-caption">
+                    </div>
+                </div>
+            </div>
+              <a class="carousel-control-prev" href="#carouselImageIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Anterior</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselImageIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Siguiente</span>
+              </a>
+            </div>        
+    </section>
+    
+    
+    
+    <section id="aplicaciones">
+         <div class="contenido-seccion">
+             <div class="container">
+                 <h2>API'S integradas</h2>
+                 <p class="lead">Para la busqueda de entradas para conciertos y festivales</p>
+             
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <div class="card-group">
+                             <div class="card">
+                                 <div class="card-block">
+                                     <h4 class="card-title">Ticketmaster</h4>
+                                     <h6 class="card-subtitle">Venta oficial</h6>
+                                 </div>
+                                 <img src="img/ticketmaster_logo.jpg" alt="">
+                                 <div class="card-block">
+                                     <p class="card-text">Encuentra y compra entradas para los mejores conciertos, eventos deportivos, obras de teatros, festivales y mucho más.</p>
+                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ver más</button>
+                                 </div>
+                             </div>
+
+                             <div class="card">
+                                 <div class="card-block">
+                                     <h4 class="card-title">Ticketswap</h4>
+                                     <h6 class="card-subtitle">Entradas de segunda mano</h6>
+                                 </div>
+                                 <img src="img/ticketswap-logo.jpg" alt="">
+                                 <div class="card-block">
+                                     <p class="card-text"> Una plataforma sencilla para que los fans puedan comprar y vender entradas para eventos.</p>
+                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ver más</button>
+                                 </div>
+                             </div>
+
+                             <div class="card">
+                                 <div class="card-block">
+                                     <h4 class="card-title">Spotify</h4>
+                                     <h6 class="card-subtitle">Escucha a tus artistas favoritos</h6>
+                                 </div>
+                                 <img src="img/spotify_logo.jpg" alt="">
+                                 <div class="card-block">
+                                     <p class="card-text"> servicio de música digital que te da acceso a millones de canciones.</p>
+                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Ver más</button>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+    </section>
+    
+    
+    
+    <section id="acerca-de">
+        <div class="contenido-seccion">
+            <div class="container">
+                <div class="col-md-6">
+                    <div class="texto-acerca-de">
+                        <h3>Acerca de Pirate Ticket</h3>
+                        <p class="lead"></p>
+                        <p>Pirate Ticket es una plataforma que ayuda en la busqueda de entradas para eventos musicales. Ofrecer la oportunidad de buscar entradas de puntos de venta oficiales y de segunda mano.</p>
+                        
+                        <h3>Síguenos</h3>
+                        <a href="#" class="btn btn-sm btn-secondary-outline">Twitter</a>
+                        <a href="#" class="btn btn-sm btn-secondary-outline">Facebook</a>
+                        <a href="#" class="btn btn-sm btn-secondary-outline">Youtube</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <section id="grupo">
+        <div class="contenido-seccion">
+            <div class="container">
+                
+                <h3>Intregrantes del grupo</h3>
+                <p class="lead">El grupo de desarrollo de la aplicación está formado por los siguientes integrantes.</p>
+                
+                <hr>
+                
+                <div class="row">
+                    <div class="col-sm-3">                        
+                            <div class="card">
+                                <img class="card-img-top" src="img/person.jpg" alt="Daniel Díaz Nogales">
+                                <div class="card-block">
+                                    <h4 class="card-title">Daniel Díaz Nogales</h4>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-sm-3">  
+                            <div class="card">
+                                <img class="card-img-top" src="img/person.jpg" alt="Miguel Gaviro Martínez">
+                                <div class="card-block">
+                                    <h4 class="card-title">Miguel Gaviro Martínez</h4>
+                                </div>
+                            </div>
+                          </div>
+                    <div class="col-sm-3">                              
+                            <div class="card">
+                              <img class="card-img-top" src="img/person.jpg" alt="Alejandro Corral">
+                              <div class="card-block">
+                                  <h4 class="card-title">Alejandro Corral</h4>
+                              </div>
+                          </div>
+                    </div>
+                    <div class="col-sm-3">  
+                            <div class="card">
+                              <img class="card-img-top" src="img/person.jpg" alt="Borja Vera Casal">
+                              <div class="card-block">
+                                  <h4 class="card-title">Borja Vera Casal</h4>
+                              </div>
+                          </div>
+                    </div>    
+                        <hr>                      
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <footer id="footer-main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <p>Creado por Pirate Ticket</p>
+                    <p>desarrollo <a href="#">Pirate Ticket</a></p>
+                </div>
+                <div class="col-sm-3">
+                    <ul class="list-unstyled">
+                        <li><a href="">Inicio</a></li>
+                        <li><a href="">Acerca de</a></li>
+                        <li><a href="">Pirate Ticket</a></li>
+                        <li><a href="">Últimas noticias</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <ul class="list-unstyled">
+                        <li><a href="">facebook</a></li>
+                        <li><a href="">twitter</a></li>
+                        <li><a href="">youtube</a></li>
+                        <li><a href="">linkedin</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h6>Info</h6>
+                    <p>La web está en desarrollo</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
